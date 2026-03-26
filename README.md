@@ -12,11 +12,11 @@ Mostra a video e salva su file **CPU, RAM, dischi, versione/build Windows (con r
 
 ```
 win-oneclick-inventory/
-├─ inventario.ps1
+├─ inventory.ps1
 └─ README.md
 ```
 
-> Il file principale è **`inventario.ps1`**. Nessuna dipendenza esterna.
+> Il file principale è **`inventory.ps1`**. Nessuna dipendenza esterna.
 
 ---
 
@@ -73,7 +73,7 @@ win-oneclick-inventory/
 
 ### Metodo consigliato (per‑process, non modifica il sistema)
 ```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\inventario.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\inventory.ps1
 ```
 
 Oppure: tasto destro sul file → **Esegui con PowerShell**.  
@@ -81,7 +81,7 @@ Alla partenza chiede un nome (es. `MarioRossi`) e genera `MarioRossi-log.txt`.
 
 > Se il file è “bloccato” (proviene da Internet), sbloccalo:
 > ```powershell
-> Unblock-File .\inventario.ps1
+> Unblock-File .\inventory.ps1
 > ```
 
 ---
@@ -93,14 +93,14 @@ Windows può impedire l’esecuzione di script non firmati. Hai più opzioni:
 - **Solo per questa sessione** (temporaneo, sicuro):
   ```powershell
   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-  .\inventario.ps1
+  .\inventory.ps1
   ```
   Chiusa la console, la policy torna com’era.
 
 - **Per l’utente corrente** (consigliato se lo usi spesso):
   ```powershell
   Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-  .\inventario.ps1
+  .\inventory.ps1
 
   # Dopo l’uso, per ripristinare:
   Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Restricted
@@ -108,14 +108,14 @@ Windows può impedire l’esecuzione di script non firmati. Hai più opzioni:
 
 - **One‑liner, senza toccare la policy globale**:
   ```powershell
-  powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\inventario.ps1
+  powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\inventory.ps1
   ```
 
 > Evita `Unrestricted` se non necessario. Se lo usi, **ripristina** a `Restricted` o `RemoteSigned` al termine.
 
 ---
 
-## Opzioni (nel file `inventario.ps1`)
+## Opzioni (nel file `inventory.ps1`)
 
 In testa alla sezione **Collect** puoi attivare/disattivare:
 
